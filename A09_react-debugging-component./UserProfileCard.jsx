@@ -1,20 +1,29 @@
 import { useState } from 'react';
 
-function userProfileCard({ user }) {
+function UserProfileCard({ user }) {
   const [messageCount, setMessageCount] = useState(0);
+  const [isFavorited, setIsFavorited] = useState(false);
 
   function handleSendMessage() {
     setMessageCount(messageCount + 1);
   }
 
   function handleReset() {
-    messageCount = 0;
+    setMessageCount(0);
+  }
+
+  function handleFavorite() {
+    setIsFavorited(current => !current);
   }
 
   return (
     <>
       <div className="profile-card">
-        <img src={user.avatarUrl} />
+        <img
+          style={{ width: 100, height: 100 }}
+          src={user.avatarUrl}
+          alt={user.name}
+        />
 
         <h2>{user.name}</h2>
 
@@ -24,7 +33,7 @@ function userProfileCard({ user }) {
         <h3>Skills</h3>
         <ul>
           {user.skills.map(skill => (
-            <li>{skill}</li>
+            <li key={skill}>{skill}</li>
           ))}
         </ul>
 
@@ -40,10 +49,19 @@ function userProfileCard({ user }) {
 
         <button onClick={handleSendMessage}>Send Message</button>
         <button onClick={handleReset}>Reset</button>
+
+        {user.isOnline && (
+          <button onClick={handleFavorite}>
+            {isFavorited ? '★ Favorited' : '☆ Favorite'}
+          </button>
+        )}
       </div>
-      <p className="footer">Card last updated: {user.lastUpdated}</p>
+
+      <p className="footer">
+        Card last updated: {user.lastUpdated}
+      </p>
     </>
   );
 }
 
-export default userProfileCard;
+export default UserProfileCard;
