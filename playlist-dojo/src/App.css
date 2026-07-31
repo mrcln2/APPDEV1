@@ -1,0 +1,175 @@
+/* Futuristic Cyber-Spotify Design System */
+:root {
+  --neon-green: #00ff66;
+  --neon-glow: rgba(0, 255, 102, 0.4);
+  --cyber-blue: #00f0ff;
+  --bg-deep: #08090c;
+  --glass-card: rgba(24, 25, 32, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f0f3f8;
+  --text-sub: #7a829e;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-main);
+  /* Cyber Grid Overlay */
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.12) 0%, transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 40px 40px, 40px 40px;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 90px;
+}
+
+/* Futuristic Dynamic Glow Header */
+.header {
+  padding: 80px 40px 40px;
+  background: radial-gradient(ellipse at top left, rgba(0, 255, 102, 0.15), transparent 70%),
+              radial-gradient(ellipse at bottom right, rgba(0, 240, 255, 0.1), transparent 70%);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  background: linear-gradient(135deg, #ffffff 30%, var(--neon-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 30px var(--neon-glow);
+}
+
+.header p {
+  margin: 0;
+  color: var(--text-sub);
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Song List Grid Shell */
+.song-list {
+  max-width: 900px;
+  width: 92%;
+  margin: 40px auto;
+}
+
+.song-list h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--cyber-blue);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.song-list h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--cyber-blue), transparent);
+}
+
+/* Futuristic Floating Cards */
+.song-item {
+  display: grid;
+  grid-template-columns: 40px 1fr 80px;
+  align-items: center;
+  padding: 14px 20px;
+  margin-bottom: 10px;
+  background: var(--glass-card);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.song-item:hover {
+  transform: translateY(-3px) scale(1.01);
+  background: rgba(30, 32, 45, 0.8);
+  border-color: var(--neon-green);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5),
+              0 0 15px var(--neon-glow);
+}
+
+.song-item:hover .song-title {
+  color: var(--neon-green);
+  text-shadow: 0 0 8px var(--neon-glow);
+}
+
+.song-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.song-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin: 0;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.song-artist {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-top: 3px;
+}
+
+/* Footer Accent */
+footer {
+  padding: 30px;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  letter-spacing: 0.1em;
+  border-top: 1px solid var(--glass-border);
+  background: var(--bg-deep);
+}
+
+/* Glowing Neon Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1f2430;
+  border-radius: 4px;
+  border: 1px solid var(--glass-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-green);
+  box-shadow: 0 0 10px var(--neon-green);
+}
