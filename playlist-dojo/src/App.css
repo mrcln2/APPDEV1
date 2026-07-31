@@ -1,13 +1,39 @@
-/* Futuristic Cyber-Spotify Design System */
+/* Futuristic Dark Music Player Mobile Interface Styling */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Orbitron:wght@600;700;900&display=swap');
+
 :root {
-  --neon-green: #00ff66;
-  --neon-glow: rgba(0, 255, 102, 0.4);
-  --cyber-blue: #00f0ff;
-  --bg-deep: #08090c;
-  --glass-card: rgba(24, 25, 32, 0.6);
+  /* Futuristic Cyber Dark Color Palette */
+  --bg-deep: #05070c;
+  --bg-app: #0c0f1d;
+  --bg-surface: #141829;
+  --card-bg: rgba(22, 27, 46, 0.65);
+  --card-hover: rgba(32, 40, 68, 0.85);
+  
+  /* Cyber Glowing Accents */
+  --neon-cyan: #00f2fe;
+  --neon-blue: #4facfe;
+  --neon-purple: #7928ca;
+  --neon-pink: #ff0080;
+  --neon-green: #00ff87;
+  --neon-green-bright: #1ed760;
+  
+  /* Glow Shadows */
+  --cyan-glow: rgba(0, 242, 254, 0.45);
+  --purple-glow: rgba(121, 40, 202, 0.45);
+  --green-glow: rgba(0, 255, 135, 0.35);
+  
+  /* Typography Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* Glass Borders */
   --glass-border: rgba(255, 255, 255, 0.08);
-  --text-main: #f0f3f8;
-  --text-sub: #7a829e;
+  --glass-border-hover: rgba(0, 242, 254, 0.4);
+  
+  /* Fonts */
+  --font-main: 'Outfit', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-display: 'Orbitron', 'Outfit', sans-serif;
 }
 
 * {
@@ -16,160 +42,305 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 0;
+  font-family: var(--font-main);
   background-color: var(--bg-deep);
-  color: var(--text-main);
-  /* Cyber Grid Overlay */
+  color: var(--text-primary);
+  /* Animated Ambient Cyber Backdrop */
   background-image: 
-    radial-gradient(circle at 50% 0%, rgba(0, 255, 102, 0.12) 0%, transparent 60%),
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 100% 100%, 40px 40px, 40px 40px;
+    radial-gradient(circle at 50% 0%, rgba(121, 40, 202, 0.25) 0%, transparent 50%),
+    radial-gradient(circle at 85% 40%, rgba(0, 242, 254, 0.18) 0%, transparent 40%),
+    radial-gradient(circle at 15% 85%, rgba(0, 255, 135, 0.15) 0%, transparent 45%),
+    linear-gradient(180deg, #05070c 0%, #080a14 100%);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
-}
-
-#root {
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
+  padding: 24px 16px;
+  overflow-x: hidden;
+}
+
+/* Modern Mobile Player Chassis Frame */
+#root {
+  width: 100%;
+  max-width: 420px;
+  min-height: 840px;
+  margin: 0 auto;
+  background: var(--bg-app);
+  border-radius: 48px;
+  /* Titanium Metallic Frame & Multi-layered Ambient Glow */
+  border: 10px solid #161b2e;
+  box-shadow: 
+    0 30px 80px -15px rgba(0, 0, 0, 0.95),
+    0 0 60px rgba(121, 40, 202, 0.25),
+    0 0 100px rgba(0, 242, 254, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.03);
   display: flex;
   flex-direction: column;
-}
-
-main {
-  flex: 1;
-  padding-bottom: 90px;
-}
-
-/* Futuristic Dynamic Glow Header */
-.header {
-  padding: 80px 40px 40px;
-  background: radial-gradient(ellipse at top left, rgba(0, 255, 102, 0.15), transparent 70%),
-              radial-gradient(ellipse at bottom right, rgba(0, 240, 255, 0.1), transparent 70%);
-  border-bottom: 1px solid var(--glass-border);
+  position: relative;
+  overflow: hidden;
   backdrop-filter: blur(20px);
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 0;
+  }
+  #root {
+    max-width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+/* Mobile Header & Dynamic Island Bar */
+.header {
+  position: relative;
+  padding: 20px 24px 34px;
+  background: linear-gradient(180deg, 
+    rgba(24, 29, 54, 0.95) 0%, 
+    rgba(15, 18, 34, 0.88) 65%, 
+    var(--bg-app) 100%
+  );
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.header h1 {
-  margin: 0;
-  font-size: clamp(3rem, 7vw, 5rem);
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  background: linear-gradient(135deg, #ffffff 30%, var(--neon-green) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 30px var(--neon-glow);
-}
-
-.header p {
-  margin: 0;
-  color: var(--text-sub);
-  font-size: 0.9rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
-/* Song List Grid Shell */
-.song-list {
-  max-width: 900px;
-  width: 92%;
-  margin: 40px auto;
-}
-
-.song-list h2 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--cyber-blue);
-  margin-bottom: 20px;
+/* Top Mobile Status Bar & Dynamic Island Simulation */
+.header::before {
+  content: '9:41';
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+  padding-top: 4px;
+  position: relative;
 }
 
-.song-list h2::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(90deg, var(--cyber-blue), transparent);
+/* Dynamic Notch Sensor in Center of Status Bar */
+.header::before {
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 70%);
 }
 
-/* Futuristic Floating Cards */
-.song-item {
-  display: grid;
-  grid-template-columns: 40px 1fr 80px;
+/* Header Holographic Artwork Box */
+.header h1::before {
+  content: '🎧';
+  display: flex;
   align-items: center;
-  padding: 14px 20px;
-  margin-bottom: 10px;
-  background: var(--glass-card);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: blur(10px);
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #7928ca 0%, #00f2fe 50%, #00ff87 100%);
+  border-radius: 28px;
+  font-size: 3.5rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.6),
+    0 0 30px var(--cyan-glow),
+    0 0 50px var(--purple-glow);
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  animation: artworkPulse 6s ease-in-out infinite alternate;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
 }
 
-.song-item:hover {
-  transform: translateY(-3px) scale(1.01);
-  background: rgba(30, 32, 45, 0.8);
-  border-color: var(--neon-green);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5),
-              0 0 15px var(--neon-glow);
+.header h1::before:hover {
+  transform: scale(1.06) rotate(3deg);
 }
 
-.song-item:hover .song-title {
-  color: var(--neon-green);
-  text-shadow: 0 0 8px var(--neon-glow);
+@keyframes artworkPulse {
+  0% {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 25px var(--cyan-glow), 0 0 40px var(--purple-glow);
+  }
+  100% {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 40px var(--purple-glow), 0 0 60px var(--green-glow);
+  }
 }
 
-.song-info {
-  display: flex;
-  flex-direction: column;
+/* Main Playlist Title */
+.header h1 {
+  margin: 0 0 6px 0;
+  font-family: var(--font-main);
+  font-size: 1.55rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 30%, #a5f3fc 70%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
 }
 
-.song-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-main);
-  margin: 0;
-  transition: color 0.2s ease, text-shadow 0.2s ease;
+/* Cyber Tag Subtitle */
+.header h1::after {
+  content: 'CYBER AUDIO • LOSSLESS HQ';
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--neon-cyan);
+  background: rgba(0, 242, 254, 0.08);
+  padding: 4px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 242, 254, 0.25);
+  margin-top: 8px;
+  text-shadow: 0 0 8px var(--cyan-glow);
 }
 
-.song-artist {
+/* Curator Info */
+.header p {
+  margin: 10px 0 0 0;
+  color: var(--text-secondary);
   font-size: 0.85rem;
-  color: var(--text-sub);
-  margin-top: 3px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
-/* Footer Accent */
+/* Verified Badge */
+.header p::before {
+  content: '✓';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 17px;
+  height: 17px;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-blue));
+  color: #05070c;
+  border-radius: 50%;
+  font-size: 0.65rem;
+  font-weight: 900;
+  box-shadow: 0 0 10px var(--cyan-glow);
+}
+
+/* Floating Neon Action Play Button */
+.header::after {
+  content: '▶';
+  position: absolute;
+  bottom: -27px;
+  right: 28px;
+  width: 54px;
+  height: 54px;
+  background: linear-gradient(135deg, #00ff87 0%, #60efff 100%);
+  color: #05070c;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  padding-left: 4px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.6),
+    0 0 25px var(--green-glow),
+    0 0 40px rgba(96, 239, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 5;
+}
+
+.header::after:hover {
+  transform: scale(1.15) rotate(5deg);
+  background: linear-gradient(135deg, #00f2fe 0%, #00ff87 100%);
+  box-shadow: 
+    0 14px 36px rgba(0, 0, 0, 0.7),
+    0 0 35px var(--cyan-glow),
+    0 0 50px var(--green-glow);
+}
+
+.header::after:active {
+  transform: scale(0.95);
+}
+
+/* Main Track Container */
+main {
+  flex: 1;
+}
+
+/* Futuristic Sticky Bottom Player Footer */
 footer {
-  padding: 30px;
-  text-align: center;
-  font-size: 0.8rem;
-  color: var(--text-sub);
-  letter-spacing: 0.1em;
-  border-top: 1px solid var(--glass-border);
-  background: var(--bg-deep);
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(12, 15, 29, 0.88);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(16px);
+  margin-top: auto;
 }
 
-/* Glowing Neon Scrollbar */
+/* Now Playing Visualizer Indicator */
+footer::before {
+  content: '⚡ NOW PLAYING • CYBER WAVE';
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+footer::after {
+  content: '❚❚';
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  letter-spacing: 2px;
+  cursor: pointer;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+footer::after:hover {
+  background: rgba(0, 242, 254, 0.2);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+  box-shadow: 0 0 16px var(--cyan-glow);
+  transform: translateY(-1px);
+}
+
+/* Custom Sleek Cyber Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-deep);
+  background: var(--bg-app);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1f2430;
-  border-radius: 4px;
-  border: 1px solid var(--glass-border);
+  background: #1e293b;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-green);
-  box-shadow: 0 0 10px var(--neon-green);
+  background: var(--neon-cyan);
 }
