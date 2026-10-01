@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DOM Practice</title>
+</head>
+<body>
+
+    <h1>My DOM Practice</h1>
+
+    <button id="colorButton">Change Background</button>
+
+    <p id="message">Waiting for JavaScript...</p>
+
+    <script>
+        const button = document.getElementById("colorButton");
+        const message = document.getElementById("message");
+
+        button.addEventListener("click", () => {
+            const color = prompt("Enter a background color:");
+
+            document.body.style.backgroundColor = color;
+        });
+
+        setTimeout(() => {
+            message.textContent = "The paragraph changed after 2 seconds!";
+        }, 2000);
+    </script>
+
+</body>
+</html>
