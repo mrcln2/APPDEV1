@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import Login from './components/Login/Login';
-import SignUp from './components/signup/SignUp/SignUp';
+import SignUp from './components/SignUp';
 
-function App() {
-  const [currentScreen, setCurrentScreen] = useState('login');
+export default function App() {
+  const [currentScreen, setCurrentScreen] = useState('SignUp');
 
   return (
-    <main>
+    <main style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
       {currentScreen === 'login' ? (
         <Login onSwitchToSignUp={() => setCurrentScreen('signup')} />
       ) : (
@@ -15,5 +15,3 @@ function App() {
     </main>
   );
 }
-
-export default App;s

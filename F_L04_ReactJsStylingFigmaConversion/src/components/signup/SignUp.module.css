@@ -1,85 +1,35 @@
-/* src/components/SignUp/SignUp.module.css */
-.container {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--background-color);
-  padding: var(--spacing-sm);
+/* Media query additions for Login.module.css and SignUp.module.css */
+
+/* Tablet & Mobile Devices */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+    padding: var(--spacing-md);
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
 }
 
-.card {
-  background-color: var(--card-background);
-  padding: var(--spacing-lg);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  width: 100%;
-  max-width: 420px;
-}
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .container {
+    padding: var(--spacing-xs);
+  }
 
-.title {
-  font-size: var(--font-size-xl);
-  color: var(--text-main);
-}
+  .card {
+    width: 95%;
+    padding: var(--spacing-sm);
+    box-shadow: none; /* Simplifies border/shadow for tiny screens */
+  }
 
-.subtitle {
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-  margin-bottom: var(--spacing-md);
-}
+  .input {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.inputGroup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.label {
-  font-size: var(--font-size-sm);
-  color: var(--text-main);
-  font-weight: 500;
-}
-
-.input {
-  padding: var(--spacing-xs) var(--spacing-sm);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-base);
-}
-
-.button {
-  margin-top: var(--spacing-xs);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  background-color: var(--primary-color);
-  color: #fff;
-  border: none;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.button:hover {
-  background-color: var(--primary-hover);
-}
-
-.footerText {
-  margin-top: var(--spacing-md);
-  text-align: center;
-  font-size: var(--font-size-sm);
-  color: var(--text-muted);
-}
-
-.linkButton {
-  background: none;
-  border: none;
-  color: var(--primary-color);
-  font-weight: 600;
-  cursor: pointer;
-  text-decoration: underline;
+  .button {
+    padding: 0.6rem;
+  }
 }
