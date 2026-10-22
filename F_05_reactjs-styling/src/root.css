@@ -1,0 +1,18 @@
+/* src/root.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Brand Colors from Figma */
+  --color-bg-page: #f4f5f7;
+  --color-card-bg: #ffffff;
+  --color-primary: #4a6375;
+  --color-primary-hover: #384c5a;
+  --color-heading: #3a4b56;
+  --color-text-muted: #b0b7c0;
+  --color-border: #ccd2d9;
+
+  /* Fonts & Radius */
+  --font-main: 'Poppins', sans-serif;
+  --radius-card: 16px;
+  --radius-button: 4px;
+}

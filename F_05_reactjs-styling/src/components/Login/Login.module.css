@@ -1,0 +1,133 @@
+/* src/components/Login/Login.module.css */
+.card {
+  display: flex;
+  width: 780px;
+  height: 520px;
+  background-color: var(--color-card-bg);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.leftPanel {
+  width: 45%;
+  height: 100%;
+}
+
+.leftImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rightPanel {
+  width: 55%;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.title {
+  color: var(--color-heading);
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.tabActive {
+  font-weight: 600;
+  color: var(--color-primary);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: 4px;
+  cursor: pointer;
+}
+
+.tabInactive {
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.inputGroup {
+  width: 100%;
+}
+
+.inputGroup input {
+  width: 100%;
+  border: none;
+  border-bottom: 1.5px solid var(--color-border);
+  padding: 8px 0;
+  font-size: 0.9rem;
+  outline: none;
+  color: var(--color-heading);
+}
+
+.inputGroup input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.inputGroup input:focus {
+  border-bottom-color: var(--color-primary);
+}
+
+.submitBtn {
+  margin-top: 10px;
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: var(--radius-button);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: var(--color-primary-hover);
+}
+
+.divider {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 15px 0 10px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.socialIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .card {
+    width: 90%;
+    height: auto;
+  }
+  .leftPanel {
+    display: none;
+  }
+  .rightPanel {
+    width: 100%;
+  }
+}
